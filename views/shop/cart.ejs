@@ -1,0 +1,37 @@
+<%- include('../include/shoppinghead.ejs') %>
+<link rel="stylesheet" href="/css/cartcopy.css">
+</head>
+<%- include('../include/shoppingmiddle.ejs') %>
+<main>
+    <%if( passing.length > 0){%>
+        <ul class="cart__item-list">
+            <% for(let pr of passing){%>
+                <% if(pr.productId==null ) { %>
+                <% }else{ %>
+                    <li class="cart__item">
+                        <h1><%=pr.productId.title%></h1>
+                        <h2>Quantity:<%=pr.qty%></h2>
+                        <h3>Rs.<%=pr.productId.price%></h3>
+                        <img src='<%=pr.productId.path%>' alt='notloading' width='250px' height='250px'>
+                        <form method='POST' action='/deletefromcart'>
+                            <button class="btn danger" type='submit'>deletefromcart</button> 
+                            <input type='hidden' name='idd' value='<%=pr.productId._id%>'>
+                            <input type='hidden' name='prr' value='<%=pr.productId.price%>'>
+                        </form>
+                    </li>
+                <%}%>
+            <%}%>
+        </ul>
+        <hr>
+        <div class="centered">
+            
+            <a class='btn' href='/orders'> order now</a>
+        </div>
+
+        
+    <%}else{%>
+        <h1> NO not at all products</h1>
+    <%}%>
+</main>
+</body>
+</html>

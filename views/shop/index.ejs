@@ -1,0 +1,35 @@
+<%- include('../include/shoppinghead.ejs') %>
+<link rel="stylesheet" href="/css/product.css">
+</head>
+<%- include('../include/shoppingmiddle.ejs') %>
+<main>
+    <%if( prods.length > 0){%>
+        <div class="grid">
+        <% for(let pr of prods){%>
+            <article class="card product-item">
+                <header class="card__header">
+                        <h1 class="product__title"><%= pr.title %></h1>
+                </header>
+                <div class="card__image">
+                        <img src='<%=pr.path %>'  alt='no-image' width='250px' height='250px'>
+                </div>
+                <div class="card__content">
+                        <h2 class="product__price">$<%= pr.price %></h2>
+                        <p class="product__description"><%= pr.description %></p>
+                </div>
+                <div class="card__actions">
+                    <form method='POST' action='/addtocart'>
+                        <button class='btn' type='submit'>add to cart</button> 
+                        <input type='hidden' name='detailid' value='<%= pr._id%>'>
+                    </form>
+                </div>
+            </article>
+        <%}%>
+                    
+    <%}else{%>
+        <h1> NO products</h1>
+    <%}%>
+</main>
+
+</body>
+</html>

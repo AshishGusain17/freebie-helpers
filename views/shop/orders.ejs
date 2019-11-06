@@ -1,0 +1,32 @@
+<%- include('../include/shoppinghead.ejs') %>
+<link rel="stylesheet" href="/css/orders.css">
+</head>
+<%- include('../include/shoppingmiddle.ejs') %>
+<main>
+    <% if(orders.length >0 ) { %>
+        <ul class="orders">
+            <% for(let pr of orders){ %>
+                <li class="orders__item">
+                    <h1>order no.#  <%= pr._id%></h1>
+                    <ul class="orders__products">
+                        <% for(let item of pr.items){ %>
+                            <% if(item.productId==null ) { %>
+                            <% }else{ %>
+                                <li class="orders__products-item">
+                                    <p>Item:<%=item.productId.title%>      Quantity:<%=item.qty%>     Price:<%=item.productId.price%></p>
+                                    <img src='<%=item.productId.path%>' alt='noimageinorder' width='250px' height='250px'>
+                                </li>
+                            <% } %>
+                                
+                        <% } %>
+                    </ul>
+                </li>
+            <% } %>
+        </ul>
+    <% }else{ %>
+        <h1> no order yet</h1>
+    <% } %>
+</main>
+
+</body>
+</html> 

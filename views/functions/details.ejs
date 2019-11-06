@@ -1,0 +1,47 @@
+<%- include('../include/head.ejs') %>
+</head>
+
+<%- include('../include/middle.ejs') %>
+<table>
+        <tr>
+            <th>Operation</th>
+            <th>Amount(Rs.)</th>
+            <th>Time</th>
+            <th>Amount left(Rs.)</th>
+        </tr>
+        <% for(let pr of details){%> 
+            <tr>
+                <% if(pr.check===-1){ %>
+                    <td class='lto'>Amount withdrawl by <%= pr.withdraw %></td>
+                    <td class='rto'>-<%= pr.withdraw %></td>
+                    <td><%= pr.date %></td>
+                    <td><%= pr.amountLeft%></td>
+        
+                <% }else if(pr.check===1){ %>
+                    <td class='lto'>Amount deposited by <%= pr.deposit %></td>
+                    <td class='rto'>+<%= pr.deposit %></td>
+                    <td><%= pr.date %></td>
+                    <td><%= pr.amountLeft%></td>
+        
+                <% }else if(pr.check===2){ %>
+                    <td class='lto'>Amount transferred to <%= pr.account %></td>
+                    <td class='rto'>-<%= pr.transfer %></td>
+                    <td><%= pr.date %></td>
+                    <td><%= pr.amountLeft%></td>
+        
+                <% }else if(pr.check===-2){ %>
+                    <td class='lto'>Amount received by <%= pr.account %></td>
+                    <td class='rto'>+<%= pr.transfer %></td>
+                    <td><%= pr.date %></td>
+                    <td><%= pr.amountLeft%></td>
+                <% } %>
+            </tr>
+        <% } %>
+</table>
+
+
+</div>
+</body>
+</html>
+
+

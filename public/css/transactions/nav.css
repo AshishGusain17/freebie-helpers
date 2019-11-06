@@ -1,0 +1,143 @@
+body{
+    padding:0;
+    margin:0;
+    font-family: sans-serif;
+}
+.hheader{
+    width:91%;
+    height:60px;
+    background-color:rgb(221, 198, 67);
+    padding:0 1.5rem;
+    margin-left:130px;
+}
+.hheader:hover{
+    background-color:black;
+}
+.nnav{
+    height:100%;
+    display:flex;
+    align-items: center;
+    margin-left:10px;
+}
+.uul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+}
+.lli{
+    margin:0 1rem;
+    padding:5px;
+}
+.lli a{
+    text-decoration: none; 
+    font-size: 16px;
+    color:white;
+}
+.lli a:hover{
+    color:rgb(64, 226, 159);
+}
+.edit{
+    text-decoration: none;
+    color:white;
+}
+.comp{
+    background-color:blue;
+    display:flex;
+    align-items: center
+}
+.form{
+    display:flex;
+    align-items: flex-end;
+    margin-left:230px;
+}
+.button{
+    margin-left:230px;
+}
+.cart{
+    float:left;
+}
+
+.orders1{
+    display:flex;
+    align-items: flex-start   
+}
+
+
+.main-header-item-list{
+    list-style:none;
+    
+    padding:0;
+    margin-right:0;
+    display:flex;
+}
+
+.flash{
+    margin-left:35%;
+
+}
+.lt{
+    position:fixed;
+    top:80px;
+    left: 20%;
+}
+.rt{
+    position:fixed;
+    top:80px;
+    right: 20%;
+}
+.div{
+    position:relative;
+    top:80px;
+}
+
+.img{
+    margin-left:230px;
+}
+
+table, td, th {
+    border: 3px solid black;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th {
+    height: 50px;
+  }
+  td{
+      height:50px;
+  }
+
+.postLogin{
+    width:50%;
+    height:50%;
+    position :fixed;
+    top:25%;
+    left:25%;
+    background-color: rgb(47, 48, 87);
+}
+
+.inpost{
+    position:relative;
+    top:25%;
+    left:25%;
+}
+
+.gotostart{
+    background-color: rgb(95, 253, 3);
+}
+
+.lld{
+    position:fixed;
+    right:0px;
+}
+.lle{
+    position:fixed;
+    right:77px;
+}
+
+
+
