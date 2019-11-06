@@ -41,7 +41,7 @@ const postSignup=(req,res,next)=>{
             }
         })
         .catch(err=>{console.log(83,err,82);});
-}
+} 
 
 
 const getLogin=(req,res,next)=>{
@@ -71,14 +71,14 @@ const postLogin=(req,res,next)=>{
         })
         .catch(err=>{console.log(13,err,81);});
 }
-
+ 
 
 const getLogout=(req,res,next)=>{
     req.session.destroy(err=>{
         console.log(34,err,8);
         res.redirect('/');
     });  
-}
+} 
 
 
 
