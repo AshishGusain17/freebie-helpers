@@ -69,7 +69,7 @@ app.use((req,res,next)=>{
 
 mongoose.connect('mongodb+srv://gusain8357:password8357@cluster0-iu4oz.mongodb.net/Netbanking_database?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true })
         .then(ob=>{
-            app.listen(4000);
+            app.listen(process.env.PORT || 4000);
             console.log('connected_via_mongooseJS',51);
         })
         .catch(err=>{console.log(5,err,78);});
