@@ -1,6 +1,4 @@
 const user=require('../data/user');
-const profile=require('../data/profile');
-const details=require('../data/details');
 const nodemailer=require('nodemailer');
 
 const getSignup=(req,res,next)=>{

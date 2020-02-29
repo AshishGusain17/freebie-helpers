@@ -13,7 +13,7 @@ const chat=require('./routes/chat');
 const auth=require('./routes/auth');
 // const loan=require('./routes/loan');
 // const pdfs=require('./routes/pdfs');
-const admin=require('./routes/admin');
+// const admin=require('./routes/admin');
 // const shop=require('./routes/shop');
 
 app.set('view engine','ejs');
@@ -60,7 +60,7 @@ app.use(chat);
 // app.use(loan);
 app.use(auth);
 // app.use(pdfs);
-app.use(admin.handler);
+// app.use(admin.handler);
 // app.use(shop);
 
 app.use((req,res,next)=>{

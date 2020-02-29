@@ -1,6 +1,4 @@
 const user=require('../data/user');
-const profile=require('../data/profile');
-const details=require('../data/details');
 
 const getFind=(req,res,next)=>{
     console.log(5,54);

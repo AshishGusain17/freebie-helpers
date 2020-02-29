@@ -1,6 +1,5 @@
 const user=require('../data/user');
-const profile=require('../data/profile');
-const details=require('../data/details');
+
 
 const currentUser=(req,res,next)=>{
     console.log(34);
