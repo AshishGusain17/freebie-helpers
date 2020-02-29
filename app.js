@@ -9,12 +9,12 @@ const multer=require('multer');
  
 const initial =require('./routes/initial');
 const user=require('./routes/user');
-const functions=require('./routes/functions');
+const chat=require('./routes/chat');
 const auth=require('./routes/auth');
-const loan=require('./routes/loan');
-const pdfs=require('./routes/pdfs');
+// const loan=require('./routes/loan');
+// const pdfs=require('./routes/pdfs');
 const admin=require('./routes/admin');
-const shop=require('./routes/shop');
+// const shop=require('./routes/shop');
 
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
@@ -46,7 +46,7 @@ const fileFilter=(req,file,cb)=>{
 app.use(multer({storage:fileStorage,fileFilter:fileFilter}).single('image')); 
 
 const store = new MongoDBStore({
-    uri: 'mongodb+srv://gusain8357:password8357@cluster0-iu4oz.mongodb.net/Netbanking_database?retryWrites=true&w=majority',
+    uri: 'mongodb+srv://AshishGusain17:password17@cluster0-werpd.mongodb.net/Chatting?retryWrites=true&w=majority',
     collection: 'mySessions'
   });
   
@@ -56,20 +56,20 @@ app.use(session({secret:'mysecret',
             store:store}));
 app.use(user);
 app.use(initial);
-app.use(functions);
-app.use(loan);
+app.use(chat);
+// app.use(loan);
 app.use(auth);
-app.use(pdfs);
+// app.use(pdfs);
 app.use(admin.handler);
-app.use(shop);
+// app.use(shop);
 
 app.use((req,res,next)=>{
-    res.render('error',{tit:'error-no-url',isAuthenticated:false});
+    res.render('error',{tit:'error-no-url',isAuthenticated:false}); 
 })
 
-mongoose.connect('mongodb+srv://gusain8357:password8357@cluster0-iu4oz.mongodb.net/Netbanking_database?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://AshishGusain17:password17@cluster0-werpd.mongodb.net/Chatting?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true })
         .then(ob=>{
-            app.listen(process.env.PORT || 4000);
+            app.listen(process.env.PORT || 3000);
             console.log('connected_via_mongooseJS',51);
         })
         .catch(err=>{console.log(5,err,78);});

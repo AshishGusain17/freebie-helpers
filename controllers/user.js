@@ -4,8 +4,8 @@ const details=require('../data/details');
 
 const currentUser=(req,res,next)=>{
     console.log(34);
-    accountNumber=req.session.accountNumber;
-    user.findOne({accountNumber:accountNumber})
+    accountName=req.session.accountName;
+    user.findOne({accountName:accountName})
         .then(user=>{
             req.logUser=user;
             // console.log(5,req.logUser,67);

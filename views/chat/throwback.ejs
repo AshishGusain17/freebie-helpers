@@ -1,0 +1,26 @@
+
+
+
+
+<%- include('../include/head.ejs') %>
+</head>
+
+<%- include('../include/middle.ejs') %>
+
+
+
+
+
+
+<div class="form-style-5">
+    <form action='/find' method="POST">
+            <fieldset>
+            <legend><span class="number">1</span> Account Info</legend>
+            <legend><%= message %> </legend>
+            <input type="text" name="accountName" placeholder="Name *">
+            </fieldset>
+    
+            <button type="submit" value="Apply">Find</button>
+    </form>
+</div>
+    

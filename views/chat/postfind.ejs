@@ -1,0 +1,36 @@
+
+
+
+
+<%- include('../include/head.ejs') %>
+</head>
+
+<%- include('../include/middle.ejs') %>
+
+
+
+
+
+
+<div class="form-style-5">
+    <form action='/display' method="POST">
+            <fieldset>
+            <legend> All messages</legend>
+            <% for(let pr of atob){%> 
+                <% if(dictionary[pr][1]==1){ %>
+                    <p style="margin-left: 10%;"> <%=dictionary[pr][0] %></p>
+                    
+                <% }else{ %>
+                    <p style="margin-right: 10%;"><%=dictionary[pr][0] %></p>
+                     
+                <% } %>
+            <% }%>
+            <input type="text" name="msg" placeholder="type">
+            <input type="hidden" name='accountName' value='<%=name%>'>
+
+            </fieldset>
+    
+            <button type="submit" value="Send">Send</button>
+    </form>
+</div>
+    

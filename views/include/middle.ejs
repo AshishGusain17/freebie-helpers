@@ -5,25 +5,12 @@
                 <li class='lli'><a href='/'>Start</a></li>
 
                 <% if(isAuthenticated){ %>
-                    <li class='lli'><a href='/withdraw'>Withdraw</a></li>
-                    <li class='lli'><a href='/transfer'>Transfer</a></li>
-                    <li class='lli'><a href='/deposit'>Deposit</a></li>
-                    <li class='lli'><a href='/checkBalance'>Check Balance</a></li>
-                    <li class='lli'><a href='/details'>All Details</a></li>
+                    <li class='lli'><a href='/find'>Find</a></li>
+
                     <li class='lli lle'><a href='/logout'>Logout</a></li>
-                    <li class='lli'><a href='/loan'>Apply for loan</a></li>
-                    <li class='lli'><a href='/shopping'>Shopping</a></li>
                 <% }else{ %>
                     <li class='lli lle'><a href='/login'>Login</a></li>
                 <% } %>
-                <li class='lli'><a href='/forms'>All forms</a></li>
                 <li class='lli lld'><a href='/signup'>SignUp</a></li>
                    
         </nav>
-        <% if(isAuthenticated){ %>
-            <%- include('../include/sidedrawer.ejs') %>
-        <% }else{ %>
-        <div class='sidebar'>
-            <a href="/help"><i class="fa fa-fw fa-support"></i> Help</a>    
-        </div>
-        <% } %>
