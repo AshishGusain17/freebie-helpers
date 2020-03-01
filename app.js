@@ -11,8 +11,8 @@ const initial =require('./routes/initial');
 const user=require('./routes/user');
 const chat=require('./routes/chat');
 const auth=require('./routes/auth');
-// const loan=require('./routes/loan');
-// const pdfs=require('./routes/pdfs');
+const group=require('./routes/group');
+const refresh=require('./routes/refresh');
 // const admin=require('./routes/admin');
 // const shop=require('./routes/shop');
 
@@ -57,7 +57,8 @@ app.use(session({secret:'mysecret',
 app.use(user);
 app.use(initial);
 app.use(chat);
-// app.use(loan);
+app.use(group);
+app.use(refresh);
 app.use(auth);
 // app.use(pdfs);
 // app.use(admin.handler);

@@ -1,0 +1,25 @@
+<%- include('../include/head.ejs') %>
+</head>
+<%- include('../include/middle.ejs') %>
+
+
+
+<fieldset>
+<legend>All groups</legend>
+<% for(let array of list){ %>
+    <div style="display:inline-table;color:red;">
+        <p><%= array[0] %></p>
+        <% for(let mem of array[1]){ %>
+            <h10><%= mem.accountName %></h10>
+        <% } %>
+        <p><%= array[2][0].accountName  %></p>
+    </div>
+
+
+<% } %>
+</fieldset>
+
+
+</div>
+    
+</body>

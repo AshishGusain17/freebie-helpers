@@ -2,18 +2,15 @@ const express=require('express');
 const router=express.Router(); 
 
 
-const chat=require('../controllers/chat');
-// const user_cont=require('../controllers/user');
+const group=require('../controllers/group');
 
-router.get('/find',chat.getFind);
+router.get('/formgroup',group.formgroup);
 
-router.post('/find',chat.display);
+router.post('/add',group.add);
 
-router.post('/display',chat.send);
+router.post('/create',group.create);
 
-router.get('/postreget',chat.display);
-
-
+router.get('/showgroup',group.showgroup);
 
 // router.get('/indirectdisplay',chat.displayIndirect);
 // router.get('/products',shop_cont.getProduct);

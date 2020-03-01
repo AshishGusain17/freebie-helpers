@@ -1,0 +1,23 @@
+<%- include('../include/head.ejs') %>
+</head>
+<%- include('../include/middle.ejs') %>
+
+
+
+<div class="form-style-5">
+    <form action='/create' method="POST">
+            <fieldset>
+            <legend>Group Info</legend>
+            <% for(let member of list){ %>
+                <input type="checkbox" name="members" value="<%= member %>">
+                <label for="members"> <%= member %></label><br>
+            <% } %>
+            </fieldset>
+
+            <input type="hidden" name='groupName' value='<%=groupName%>'>
+
+            <button type="submit" value="Apply">Add</button>
+    </form>
+</div>
+    
+</body>

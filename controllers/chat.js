@@ -5,8 +5,15 @@ const getFind=(req,res,next)=>{
     res.render('chat/find',{tit:'just the start',message:'',isAuthenticated:req.session.loggedIn});
 }
 
-const postFind=(req,res,next)=>{
-    friend=req.body.accountName;
+const display=(req,res,next)=>{
+    console.log(23,req.body,65)
+    if (req.body.accountName){
+        friend=req.body.accountName;
+        req.session.friend=friend;
+    }
+    else{
+        friend=req.session.friend;
+    }
     me=req.session.accountName;
     if (friend==''){
         res.render('chat/find',{tit:'try again',message:'Hey,write the user name',isAuthenticated:req.session.loggedIn});
@@ -54,7 +61,7 @@ const postFind=(req,res,next)=>{
                         break;
                     }
                 }
-                // console.log(dict,atob);
+                // console.log(dict,atob,friend);
                 res.render('chat/postfind',{tit:'chats',dictionary:dict,atob:atob,name:friend,isAuthenticated:req.session.loggedIn});
  
             })
@@ -67,12 +74,15 @@ const postFind=(req,res,next)=>{
     .catch(err=>{console.log(89,err,21);});
 }
  
-const display=(req,res,next)=>{
+
+
+const send=(req,res,next)=>{
+    console.log(23,req.body,req.params,76);
     friend=req.body.accountName;
     me=req.session.accountName;
     chat=req.body.msg;
-    req.body.msg='';
     let dict={};
+    let atob=[];
     user.findOne({accountName:me})
     .then(user1=>{
         const var1=user1.message;
@@ -96,6 +106,8 @@ const display=(req,res,next)=>{
             var2=[...var2,{accountName:friend,a:1,b:1,mes:[{
                                                         rank:1,str:chat }]
                         }];
+            atob.push(1);
+            dict[1]=[chat,1];
         }
         const message={contacts:var2}
         user1.message=message;
@@ -109,7 +121,7 @@ const display=(req,res,next)=>{
                     let var4=var3.contacts;
                     len=var4.length;
                     flag=0;
-                    let atob=[];
+                    
                     for (i=0;i<len;i++){
                         if (var4[i].accountName == me){
                             var4[i].b+=1;
@@ -133,6 +145,7 @@ const display=(req,res,next)=>{
                     if (flag==0){
                         var4=[...var4,{accountName:me,a:1,b:1,mes:[]
                                     }];
+
                     }
                     const message={contacts:var4}
                     user3.message=message;
@@ -140,7 +153,8 @@ const display=(req,res,next)=>{
                     user4.save()
                         .then(b=>{
                             console.log(45,'second friend change done',23);
-                            res.render('chat/postfind',{tit:'chats',name:friend,dictionary:dict,atob:atob,isAuthenticated:req.session.loggedIn});
+                            console.log(56,dict,atob,friend,87);
+                            res.redirect('/postreget');
 
                         })
                         .catch(err=>{console.log(98,err,73);});
@@ -151,20 +165,11 @@ const display=(req,res,next)=>{
     })
     .catch(err=>{console.log(73,err,43);});
 }
-// message:{
-//     contacts:[{    accountName:String,
-//                         a:Number,
-//                         b:Number,
-//                         mes:[{rank:Number,
-//                                 str:String
-//                             }]
-//             }]
-// }
 
 
 
 module.exports={
     getFind:getFind,
-    postFind:postFind,
+    send:send,
     display:display
 } 
