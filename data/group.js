@@ -4,9 +4,9 @@ const groupSchema=new Schema({
     grp:{
         groupName:String,
         members:[{accountName:String}],
-        admins:[{accountName:String}]
+        admins:[{accountName:String}],
+        message:[{accountName:String,str:String}]
     }
-
 });
 
 const group=mongoose.model('Group',groupSchema); 

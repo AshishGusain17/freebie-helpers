@@ -12,6 +12,11 @@ router.post('/create',group.create);
 
 router.get('/showgroup',group.showgroup);
 
+router.get('/groupdisplay/:param',group.groupdisplay);
+
+router.post('/groupdisplay/:param',group.groupsend);
+
+router.get('/grouppostreget',group.groupdisplay);
 // router.get('/indirectdisplay',chat.displayIndirect);
 // router.get('/products',shop_cont.getProduct);
 

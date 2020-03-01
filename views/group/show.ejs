@@ -8,7 +8,7 @@
 <legend>All groups</legend>
 <% for(let array of list){ %>
     <div style="display:inline-table;color:red;">
-        <p><%= array[0] %></p>
+        <a href='/groupdisplay/<%=array[3]%>'><p><%= array[0] %></p></a>
         <% for(let mem of array[1]){ %>
             <h10><%= mem.accountName %></h10>
         <% } %>
