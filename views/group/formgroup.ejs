@@ -8,6 +8,10 @@
     <form action='/add' method="POST">
             <fieldset>
             <legend>Group Info</legend>
+            <% if(message){ %>
+                <p><%= message %></p>
+            <% } %>
+            
             <input type="text" name="groupName" placeholder="Name *">
             </fieldset>
     

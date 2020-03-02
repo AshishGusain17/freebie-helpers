@@ -19,7 +19,7 @@ const postSignup=(req,res,next)=>{
     console.log(54,name1,password1,email1,94);
     if (password1=='' || name1=='' ||email1=='')
     {
-        res.render('auth/signup',{tit:'signup_again',messageL:false,messageS:'Fill all details',isAuthenticated:req.session.loggedIn});
+        res.render('auth/signup',{tit:'signup_again',messageL:false,messageS:'Fill all the details',isAuthenticated:req.session.loggedIn});
     }
     else{
         user.findOne({accountName:name1})

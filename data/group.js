@@ -5,7 +5,7 @@ const groupSchema=new Schema({
         groupName:String,
         members:[{accountName:String}],
         admins:[{accountName:String}],
-        message:[{accountName:String,str:String}]
+        message:[{accountName:String,str:String,time:String,date:String}]
     }
 });
 

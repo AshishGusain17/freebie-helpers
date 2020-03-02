@@ -1,35 +1,34 @@
-
-
-
-
 <%- include('../include/head.ejs') %>
+<link rel="stylesheet" href='/css/chat.css'>
 </head>
-
 <%- include('../include/middle.ejs') %>
 
-
-
-
-<legend> All messages</legend>
+<h2 class="name"><%=name%></h2>
 <% for(let pr of atob){%> 
-    <% if(dictionary[pr][1]==1){ %>
-        <p style="margin-left: 10%;"> <%=dictionary[pr][0] %></p>
+    <% if(dictionary[pr][3]==1){ %>
+        <div class="container">
+            <h4 class='whatsapp-name'>You</h4>
+            <p class="msg1"> <%=dictionary[pr][0] %>  </p>
+            <span class="time-right"><%=dictionary[pr][1] %>   </span><br>
+            <!-- <span class="time-right">  <%=dictionary[pr][2] %> </span> -->
+          </div>
         
     <% }else{ %>
-        <p style="margin-right: 10%;"><%=dictionary[pr][0] %></p>
+        <div class="container darker">
+            <h4 class='whatsapp-name'><%=name%></h4>
+            <p class="msg2"> <%=dictionary[pr][0] %>  </p>
+            <span class="time-right"><%=dictionary[pr][1] %>   </span><br>
+            <!-- <span class="time-left">  <%=dictionary[pr][2] %> </span> -->
+          </div>
          
     <% } %>
 <% }%>
 <div class="form-style-5">
     <form action='/display' method="POST">
-            <fieldset>
-            
-            <input type="text" name="msg" placeholder="type">
-            <input type="hidden" name='accountName' value='<%=name%>'>
 
-            </fieldset>
-    
-            <button type="submit" value="Send">Send</button>
+            <input type="text" class='write' name="msg"  placeholder="type">
+            <input type="hidden" name='accountName'  value='<%=name%>'>
+            <button type="submit" class='send' value="Send">Send</button>
     </form>
 </div>
     

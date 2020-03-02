@@ -5,14 +5,14 @@
 
 <legend><%=groupName %></legend>
 <% for(let pr of array){%> 
-    <% if(pr[2]==1){ %>
+    <% if(pr[4]==1){ %>
         <div>        
-            <p style="margin-left: 10%;"> <%=pr[1] %></p>
+            <p style="margin-left: 10%;"> <%=pr[1] %> <%=pr[2] %> <%=pr[3] %></p>
         </div>
     <% }else{ %>
         <div>
             <h2><%=pr[0] %>:</h2>
-            <p style="margin-right: 10%;"><%=pr[1] %></p> 
+            <p style="margin-right: 10%;"><%=pr[1] %> <%=pr[2] %> <%=pr[3] %></p> 
         </div>
     <% } %>
 <% }%>

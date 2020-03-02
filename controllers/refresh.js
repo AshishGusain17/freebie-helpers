@@ -6,6 +6,7 @@ const refresh=(req,res,next)=>{
     me=req.session.accountName;
     console.log(56,me,23);
     let list=[];
+    groupName=''
     group.find()
     .then(jhund=>{
         // console.log(56,jhund,89);

@@ -19,7 +19,9 @@ const userSchema=new Schema({
                             a:Number,
                             b:Number,
                             mes:[{rank:Number,
-                                    str:String
+                                    str:String,
+                                    time:String,
+                                    date:String
                                 }]
                 }]
     },

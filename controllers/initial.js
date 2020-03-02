@@ -9,4 +9,4 @@ const start=(req,res,next)=>{
 
 module.exports={
     start:start
-} 
+}  

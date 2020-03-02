@@ -1,0 +1,101 @@
+body {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+  
+  .container {
+    border: 2px solid #dedede;
+    background-color: #70775e;
+    border-radius: 5px;
+    padding: 0px;
+    margin: 0px 0;
+  }
+  
+  .darker {
+    border-color: #ccc;
+    background-color: rgb(72, 88, 58);
+  }
+  
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+  
+  .container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+  }
+  
+  .time-right {
+    float: right;
+    color: rgb(233, 229, 229);
+    font-size:13px;
+  }
+  
+  .time-left {
+    float: left;
+    color: rgb(233, 229, 229);
+    font-size:13px;
+  }
+
+  .whatsapp-name{
+    margin:3px;
+    font-size:19px;
+    color:rgba(28, 31, 29, 0.904)
+  }
+
+  .msg1{
+    margin-left: 70%;
+    margin-bottom:0px;
+    font-family: "Georgia", Times, serif;
+    margin-top:0px;
+  }
+  .msg2{
+    margin-left:20%;
+    margin-bottom:0px;
+    font-family: "Georgia", Times, serif;
+    margin-top:0px;
+  }
+
+  .send{
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+
+  .write{
+    background-color: rgb(208, 233, 231);
+    color: rgb(255, 255, 255);
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 95%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+
+  .name {
+    border: 0px solid #28772c;
+    background-color: #5b5f96;
+    border-radius: 5px;
+    padding: 0px;
+    text-align: center;
+    margin: 0px 0;
+  }
+  

@@ -3,13 +3,16 @@ const group=require('../data/group');
 
 
 const formgroup=(req,res,next)=>{
-    res.render('group/formgroup',{tit:'form group',isAuthenticated:req.session.loggedIn});
+    res.render('group/formgroup',{tit:'form group',message:false,isAuthenticated:req.session.loggedIn});
 }
 
 const add=(req,res,next)=>{
-    groupName=req.body.groupName;
+    groupName=req.body.groupName.trim();
+    if (groupName==''){
+        res.render('group/formgroup',{tit:'form group',message:'You need to give a group name',isAuthenticated:req.session.loggedIn});
+    }
     me=req.session.accountName;
-    console.log(56,groupName,23);
+    console.log(56,req.body,23);
     let list=[];
     user.findOne({accountName:me})
     .then(user=>{
@@ -19,13 +22,16 @@ const add=(req,res,next)=>{
         for (i=0;i<len;i++){
             list.push(var2[i].accountName);
         }
-        console.log(67,list,3);
+        console.log(67,list,len,3);
         res.render('group/add',{tit:'adding member',groupName:groupName,list:list,isAuthenticated:req.session.loggedIn})
     })
     .catch(err=>{console.log(89,err,21);});
 }
 
 const create=(req,res,next)=>{
+    if (!req.body.members){
+        res.redirect('/')
+    }
     me=req.session.accountName;
     groupName=req.body.groupName;
     members=req.body.members;
@@ -116,10 +122,10 @@ const groupdisplay=(req,res,next)=>{
         let len=var2.length;
         for (i=0;i<len;i++){
             if (var2[i].accountName == me){
-                array.push([var2[i].accountName,var2[i].str,1])
+                array.push([var2[i].accountName,var2[i].str,var2[i].time,var2[i].date,1])
             }
             else{
-                array.push([var2[i].accountName,var2[i].str,0])
+                array.push([var2[i].accountName,var2[i].str,var2[i].time,var2[i].date,0])
             }
         }    
         console.log(56,array,var1.groupName,idnum,23);
@@ -137,8 +143,16 @@ const groupdisplay=(req,res,next)=>{
 const groupsend=(req,res,next)=>{
     idnum=req.params.param;
     me=req.session.accountName;
-    msg=req.body.msg;
+    msg=req.body.msg.trim();
     console.log(76,msg,idnum,21);
+    tt=Date().split(" ");
+    // console.log(tt);
+    const time1=tt[4].split(':');
+    // console.log(time1)
+    time1.pop()
+    const time=time1.join(':')
+    const date=tt[1] + '/' + tt[2] + '/' + tt[3];
+    // console.log(1,time,date,9);
     group.findOne({_id:idnum})
     .then(obj=>{
         // console.log(87,obj,3)
@@ -146,7 +160,9 @@ const groupsend=(req,res,next)=>{
         let var2=var1.message;
         len=var2.length;
         let flag=0;
-        var2=[...var2,{accountName:me,str:msg}];
+        if (msg!=''){
+            var2=[...var2,{accountName:me,str:msg,time:time,date:date}];
+        }
         obj.grp.message=var2;
         // console.log(89,obj,23);
         obj=new group (obj);
@@ -158,7 +174,7 @@ const groupsend=(req,res,next)=>{
         })
         .catch(err=>{console.log(73,err,43);});
     })
-    .catch(err=>{console.log(73,err,43);});
+    .catch(err=>{console.log(1,err,89);});
 }
 
 
