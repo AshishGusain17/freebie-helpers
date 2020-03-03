@@ -1,8 +1,5 @@
-
-
-
-
 <%- include('../include/head.ejs') %>
+<link rel="stylesheet" href='/css/chat.css'>
 </head>
 
 <%- include('../include/middle.ejs') %>
@@ -10,13 +7,12 @@
 
 <div class="form-style-5">
     <form action='/find' method="POST">
-            <fieldset>
-            <legend><span class="number">1</span> Account Info</legend>
-            <legend><%= message %> </legend>
-            <input type="text" name="accountName"  placeholder="Name *">
-            </fieldset>
-    
-            <button type="submit" value="Apply">Find</button>
+        <h2 class="name">Account Info</h2>
+        <h4 class="name"><%= message %></h4>
+        <input type="text" class='write' name="accountName"  placeholder="Name *">
+
+        <!-- <input type="text" name="accountName"  placeholder="Name *"> -->    
+        <button type="submit" class='send' value="Apply">Find</button>
     </form>
 </div>
     

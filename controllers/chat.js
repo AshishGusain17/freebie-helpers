@@ -16,7 +16,7 @@ const display=(req,res,next)=>{
     if (accountName==''){
         // req.session.friend='';
         console.log(92,req.body,"if part",94);
-        res.render('chat/find',{tit:'try again',message:'Hey,write the user name',isAuthenticated:req.session.loggedIn});
+        res.render('chat/find',{tit:'try again',message:'Username cannot be empty',isAuthenticated:req.session.loggedIn});
 
     }
     else{

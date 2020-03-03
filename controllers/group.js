@@ -74,7 +74,7 @@ const showgroup=(req,res,next)=>{
         let ct=0;
         console.log(len)
         if (len==0){
-            res.redirect('/');
+            res.render('group/show',{tit:'show groups',list:list,isAuthenticated:req.session.loggedIn});
 
         }
         for(i=0;i<len;i++){

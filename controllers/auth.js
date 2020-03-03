@@ -62,7 +62,8 @@ const postLogin=(req,res,next)=>{
                     req.session.loggedIn=true;
                     req.session.accountName=name1;
                     req.session.us=user;
-                    res.render('auth/postLogin',{tit:'postLogin',isAuthenticated:req.session.loggedIn,messageS:false,messageL:'finally logged in'});
+                    res.redirect('/');
+                    // res.render('auth/postLogin',{tit:'postLogin',isAuthenticated:req.session.loggedIn,messageS:false,messageL:'finally logged in'});
                 }
                 else{
                     res.render('auth/login',{tit:'login',messageS:false,messageL:'Enter correct password',isAuthenticated:!req.session.loggedIn});

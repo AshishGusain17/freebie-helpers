@@ -1,21 +1,17 @@
 <%- include('../include/head.ejs') %>
+<link rel="stylesheet" href='/css/chat.css'>
 </head>
 <%- include('../include/middle.ejs') %>
 
-
-
 <div class="form-style-5">
     <form action='/add' method="POST">
-            <fieldset>
-            <legend>Group Info</legend>
-            <% if(message){ %>
-                <p><%= message %></p>
-            <% } %>
-            
-            <input type="text" name="groupName" placeholder="Name *">
-            </fieldset>
-    
-            <button type="submit" value="Apply">Form</button>
+
+        <h2 class="name">Group Info</h2>
+        <% if(message){ %>
+            <h4 class='name'><%= message %></h4>
+        <% } %>
+        <input type="text" class='write' name="groupName" placeholder="Name *">    
+        <button type="submit" class='send' value="Apply">Form</button>
     </form>
 </div>
     

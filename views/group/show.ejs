@@ -1,26 +1,26 @@
 <%- include('../include/head.ejs') %>
+<link rel="stylesheet" href='/css/chat.css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <%- include('../include/middle.ejs') %>
 
-
-
-<fieldset>
-<legend>All groups</legend>
-<p>Kindly refresh, if new formed groups are not visisble</p>
-<% for(let array of list){ %>
-    <div style="display:inline-table;color:red;">
-        <a href='/groupdisplay/<%=array[3]%>'><p><%= array[0] %></p></a>
-        <% for(let mem of array[1]){ %>
-            <h10><%= mem.accountName %></h10>
-        <% } %>
-        <p><%= array[2][0].accountName  %></p>
-    </div>
-
-
-<% } %>
-</fieldset>
-
+<h2 class='name'>Click over the group to start chatting</h2>
+<h2 class='name'>Kindly refresh, if new formed groups are not visible </h2>
+<div class="container">
+    <% for(let array of list){ %>
+        <div class="list-group">
+            <a href='/groupdisplay/<%=array[3]%>' class="list-group-item active">
+                <h4 class="list-group-item-heading">Group Name:<%= array[0] %> </h4>
+                <p class="list-group-item-heading">Admin:<%= array[2][0]. accountName  %> </p>
+                <p class="list-group-item-heading">Members:</p>
+                <% for(let mem of array[1]){ %>
+                    <p class="list-group-item-text"><%= mem.accountName %></p>
+                <% } %>
+            </a>
+        </div>
+    <% } %> 
 
 </div>
-    
 </body>

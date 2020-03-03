@@ -10,7 +10,7 @@ body{
     height:60px;
     background-color:rgb(221, 198, 67);
     padding:0 1.5rem;
-    margin-left:130px;
+    margin-left:0px;
 }
 .hheader:hover{
     background-color:black;
@@ -27,7 +27,7 @@ body{
     display:flex;
 }
 
-.edit{
+/* .edit{
     text-decoration: none;
     color:white;
 }
@@ -42,18 +42,10 @@ body{
     margin-left:230px;
 }
 .button{
-    /* display:flex;
-    align-items: flex-end; */
+    
     margin-left:230px;
-}
-.cart{
-    float:left;
-}
+} */
 
-.orders1{
-    display:flex;
-    align-items: flex-start   
-}
 
 /* .main-header-item{
 
@@ -66,10 +58,9 @@ body{
     margin-right:0;
     display:flex;
 }
-
+/* 
 .flash{
     margin-left:35%;
-
 }
 .lt{
     position:fixed;
@@ -85,10 +76,7 @@ body{
     position:relative;
     top:80px;
 }
-
-.img{
-    margin-left:230px;
-}
+ */
 
 
 
@@ -97,51 +85,6 @@ body{
 
 
 
-
-
-
-
-
-
-
-
-
-table{
-    width:80%;
-    margin:auto;
-    text-align: center;
-    table-layout:fixed;
-    
-}
-table,tr,th,td{
-    padding:20px;
-    color:white;
-    border:1px solid #080808;
-    border-collapse:collapse;
-    font-size:18px;
-    font-family:Arial;
-    background:linear-gradient(top,#3c3c3c 0%, #222222 100%);
-    background:-webkit-linear-gradient(top,#3c3c3c 0%, #222222 100%);
-}
-td:hover{
-    background:orange;
-}
-
-
-
-
-
-
-
-  
-.postLogin{
-    width:50%;
-    height:50%;
-    position :fixed;
-    top:25%;
-    left:25%;
-    background-color: rgb(47, 48, 87);
-}
 
 .inpost{
     position:relative;
@@ -155,49 +98,13 @@ td:hover{
 
 
 
-
-
-.sidebar {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgb(180, 206, 35);
-    overflow-x: hidden;
-    padding-top: 16px;
-  }
-  
-  /* Style sidebar links */
-  .sidebar a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #818181;
-    display: block;
-/* 
-    position: absolute;
-    left: -80px;
-    transition: 0.3s;
-    padding: 15px;
-    width: 100px;
-    text-decoration: none;
-    border-radius: 0 5px 5px 0; */
-  }
-  
-  /* Style links on mouse-over */
-  .sidebar a:hover {
-    color: #f1f1f1;
-    left: 0;
-  }
   
   /* Style the main content */
-  .main {
+  /* .main {
     margin-left: 160px; 
     padding: 0px 10px;
   }
-  
+   */
   .lli{
     margin:0 1rem;
     padding:0;
@@ -219,21 +126,11 @@ td:hover{
 
 
 
-.loans{
-    margin-left:30%;
-    color:rgb(153, 177, 45);
-    font-size:30px;
-}
-
-.loans:hover {
-    color: #f1f1f1;
-    left: 0;
-  }
 
   .initial1{
       color:black;
       font-size:40px;
-      margin-left:25%;
+      margin-left:38%;
   }
 
 .initial1:hover{
