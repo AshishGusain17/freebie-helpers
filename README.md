@@ -1,5 +1,8 @@
 # Whatsapp-mini-version
 
+Visit this website here. SignUp, LogIn and start exploring.
+* [mini-chatapp.herokuapp.com](https://mini-chatapp.herokuapp.com/)
+
 ## Dependencies required:
 * [Node.js](https://nodejs.org/docs/latest-v10.x/api/) - v10.16.2
 * [JavaScript](https://devdocs.io/javascript/) - 1.1.1
@@ -42,6 +45,5 @@ Signup with a unique user-name, make new friends and start chatting.
 
 Form multiple groups with all your contacts and enjoy this mini-whatsapp.
 
-Try running over the localhost:3000 and make use of its features.
+Try running over the localhost:4000 or visit the link provided above and make use of its features.
 
-Soon this web-app will be deployed and its link will be provided soon.
