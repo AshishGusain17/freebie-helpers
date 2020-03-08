@@ -9,9 +9,9 @@ const multer=require('multer');
  
 const initial =require('./routes/initial');
 const user=require('./routes/user');
-const chat=require('./routes/chat');
+// const chat=require('./routes/chat');
 const auth=require('./routes/auth');
-const group=require('./routes/group');
+const post=require('./routes/post');
 const refresh=require('./routes/refresh');
 // const admin=require('./routes/admin');
 // const shop=require('./routes/shop');
@@ -46,7 +46,7 @@ const fileFilter=(req,file,cb)=>{
 app.use(multer({storage:fileStorage,fileFilter:fileFilter}).single('image')); 
 
 const store = new MongoDBStore({
-    uri: 'mongodb+srv://AshishGusain17:password17@cluster0-werpd.mongodb.net/Chatting?retryWrites=true&w=majority',
+    uri: 'mongodb+srv://AshishGusain17:password17@cluster0-werpd.mongodb.net/weblog?retryWrites=true&w=majority',
     collection: 'mySessions'
   });
   
@@ -56,8 +56,8 @@ app.use(session({secret:'mysecret',
             store:store}));
 app.use(user);
 app.use(initial);
-app.use(chat);
-app.use(group);
+// app.use(chat);
+app.use(post);
 app.use(refresh);
 app.use(auth);
 // app.use(pdfs);
@@ -68,9 +68,9 @@ app.use((req,res,next)=>{
     res.render('error',{tit:'error-no-url',isAuthenticated:false}); 
 })
 
-mongoose.connect('mongodb+srv://AshishGusain17:password17@cluster0-werpd.mongodb.net/Chatting?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://AshishGusain17:password17@cluster0-werpd.mongodb.net/weblog?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true })
         .then(ob=>{
-            app.listen( 4000);
+            app.listen(1000);
             // app.listen(process.env.PORT || '0.0.0.0' );
             console.log('connected_via_mongooseJS',51);
         })

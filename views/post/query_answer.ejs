@@ -1,0 +1,28 @@
+<%- include('../include/head.ejs') %>
+</head>
+
+<%- include('../include/middle.ejs') %>
+
+<div class="form-style-5">
+    <h2 class="name">Choose a query to answer</h2>
+
+    <% if(q.length >0){ %>
+        <% for(let pr of q){ %>
+
+            Problem-statement by:<br>
+            <p><%= pr.opener %></p>
+
+            Query:<br>
+            <p><%= pr.text %></p>
+            
+            <a href='/reply'>Reply</a><br><br>
+        <% } %>
+    <% }else{ %>
+        <p>No query related to such subject that you can answer</p>
+    <% } %>
+
+
+</div>
+
+</body>
+</html> 

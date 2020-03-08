@@ -1,0 +1,22 @@
+<%- include('../include/head.ejs') %>
+</head>
+
+<%- include('../include/middle.ejs') %>
+
+<div class="form-style-5">
+    <form action='/postanswer' method="POST">
+        <h2 class="name">Query Info</h2>
+
+        <% if(message) { %>
+            <h1><%= message %></h1>
+        <% } %>
+
+        Subject:<br>
+        <input type='text' name='subject'  placeholder='subject-name' ><br>
+
+        <button type="submit" class='send' value="Apply">Find</button>
+    </form>
+</div>
+
+</body>
+</html> 

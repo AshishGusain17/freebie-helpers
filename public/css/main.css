@@ -27,29 +27,6 @@ body{
     display:flex;
 }
 
-/* .edit{
-    text-decoration: none;
-    color:white;
-}
-.comp{
-    background-color:blue;
-    display:flex;
-    align-items: center
-}
-.form{
-    display:flex;
-    align-items: flex-end;
-    margin-left:230px;
-}
-.button{
-    
-    margin-left:230px;
-} */
-
-
-/* .main-header-item{
-
-} */
 
 .main-header-item-list{
     list-style:none;
@@ -58,25 +35,6 @@ body{
     margin-right:0;
     display:flex;
 }
-/* 
-.flash{
-    margin-left:35%;
-}
-.lt{
-    position:fixed;
-    top:80px;
-    left: 20%;
-}
-.rt{
-    position:fixed;
-    top:80px;
-    right: 20%;
-}
-.div{
-    position:relative;
-    top:80px;
-}
- */
 
 
 
@@ -137,6 +95,19 @@ body{
     color: #f1f1f1;
     left: 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

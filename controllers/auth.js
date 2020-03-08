@@ -6,15 +6,13 @@ const getSignup=(req,res,next)=>{
 }
 
 const postSignup=(req,res,next)=>{
-    password1=req.body.password;
-    name1=req.body.accountName;
+    password1=req.body.password.trim();
+    name1=req.body.accountName.trim();
     email1=req.body.email;
     object={
         password:password1,
         accountName:name1,
         email:email1
-        // details:[],
-        // cart:{items:[]}
     };
     console.log(54,name1,password1,email1,94);
     if (password1=='' || name1=='' ||email1=='')
@@ -33,7 +31,8 @@ const postSignup=(req,res,next)=>{
                 obj1=new user(object);
                 obj1.save()
                     .then(a=>{
-                        res.redirect('/');
+                        // res.redirect('/');
+                        res.render('auth/login',{tit:'login',messageS:false,messageL:false,isAuthenticated:false});
                     })
                     .catch(err=>{console.log(3,err,8);});
 
@@ -49,8 +48,8 @@ const getLogin=(req,res,next)=>{
 }
 
 const postLogin=(req,res,next)=>{
-    password1=req.body.password;
-    name1=req.body.accountName;
+    password1=req.body.password.trim();
+    name1=req.body.accountName.trim();
     if (password1=='' || name1==''){
         res.render('auth/login',{tit:'login',messageS:false,messageL:'Fill all the login details',isAuthenticated:!req.session.loggedIn});
     }
@@ -63,7 +62,6 @@ const postLogin=(req,res,next)=>{
                     req.session.accountName=name1;
                     req.session.us=user;
                     res.redirect('/');
-                    // res.render('auth/postLogin',{tit:'postLogin',isAuthenticated:req.session.loggedIn,messageS:false,messageL:'finally logged in'});
                 }
                 else{
                     res.render('auth/login',{tit:'login',messageS:false,messageL:'Enter correct password',isAuthenticated:!req.session.loggedIn});

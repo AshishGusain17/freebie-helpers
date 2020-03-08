@@ -1,5 +1,5 @@
 const user=require('../data/user');
-const group=require('../data/group');
+const group=require('../data/query');
 
 
 const refresh=(req,res,next)=>{

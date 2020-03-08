@@ -11,27 +11,25 @@ const userSchema=new Schema({
     email:{
         type:String,
         required:true
-    },
-    token:String,
-    timelimit:Date,
-    message:{
-        contacts:[{    accountName:String,
-                            a:Number,
-                            b:Number,
-                            mes:[{rank:Number,
-                                    str:String,
-                                    time:String,
-                                    date:String
-                                }]
-                }]
-    },
-    grp:[{
-        id:{
-            type:Schema.Types.ObjectId,
-            ref:'Group',
-            required:true
-        }}
-    ]
+    }
+    // message:{
+    //     contacts:[{    accountName:String,
+    //                         a:Number,
+    //                         b:Number,
+    //                         mes:[{rank:Number,
+    //                                 str:String,
+    //                                 time:String,
+    //                                 date:String
+    //                             }]
+    //             }]
+    // },
+    // grp:[{
+    //     id:{
+    //         type:Schema.Types.ObjectId,
+    //         ref:'Group',
+    //         required:true
+    //     }}
+    // ]
 
 });
 const user=mongoose.model('User',userSchema); 
