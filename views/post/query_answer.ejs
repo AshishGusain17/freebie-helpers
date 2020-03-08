@@ -8,14 +8,14 @@
 
     <% if(q.length >0){ %>
         <% for(let pr of q){ %>
-
-            Problem-statement by:<br>
-            <p><%= pr.opener %></p>
-
-            Query:<br>
-            <p><%= pr.text %></p>
-            
-            <a href='/reply'>Reply</a><br><br>
+            <div onclick="location.href='/divclick/<%=pr._id %>';">
+                Problem-statement by:<br>
+                <p><%= pr.opener %></p>
+    
+                Query:<br>
+                <p><%= pr.text %></p>
+                
+            </div>
         <% } %>
     <% }else{ %>
         <p>No query related to such subject that you can answer</p>

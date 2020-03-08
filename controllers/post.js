@@ -42,8 +42,8 @@ const getanswer=(req,res,next)=>{
 
 const postanswer=(req,res,next)=>{
     subject=req.body.subject.trim()
-    name=req.session.user
-    console.log(4,subject,name,20);
+    // name=req.session.accountName
+    console.log(4,subject,20);
     if (subject==''){
         res.render('post/getanswer',{tit:'subject again',message:'Subject name cannot be empty',isAuthenticated:req.session.loggedIn})
     }
@@ -52,23 +52,113 @@ const postanswer=(req,res,next)=>{
         .then(q=>{
             console.log(465,q.length,89)
             res.render('post/query_answer',{tit:'answering',q:q,isAuthenticated:req.session.loggedIn})
-
-            // if(q.length>0){
-            //     res.render('post/query_answer',{tit:'answering',isAuthenticated:req.session.loggedIn})
-            // }
-            // else{
-            //     res.render('post/query_answer',{})
-            // }
         })
         .catch(err=>{console.log(1,err,07);});
     }
 }
 
 
+const divclick=(req,res,next)=>{
+    idnum=req.params.idnum;
+    req.session.query=idnum;
+    console.log(14,req.params,20);
+    query.findOne({_id:idnum})
+    .then(q=>{
+        reply=q.reply;
+        console.log(4,q,reply,89);
+        res.render('post/complete_query',{tit:'all comments',q:q,reply:reply,isAuthenticated:req.session.loggedIn});
+    })
+    .catch(err=>{console.log(1,err,07);});
+}
+
+
+const newcomment=(req,res,next)=>{
+    idnum=req.params.idnum;
+    text=req.body.text.trim();
+    console.log(2,idnum,text,6);
+    tt=Date().split(" ");
+    const time1=tt[4].split(':');
+    time1.pop()
+    const time=time1.join(':')
+    const date=tt[1] + '/' + tt[2] + '/' + tt[3];
+    query.findOne({_id:idnum})
+    .then(q=>{
+        reply=q.reply;
+        console.log(4,reply,89);
+        if(text==''){newreply=[...reply];}
+        else{
+            newreply=[...reply,{user:req.session.accountName,comment:text,time:time,date:date,upvote:0,array:[]}];
+        }
+        q.reply=newreply;
+        obj = new query(q);
+        obj.save()
+        .then(qwe=>{
+            res.redirect('/newcomment_redirect');
+        })
+        .catch(err=>{console.log(65,err,43);});
+    })
+    .catch(err=>{console.log(6,err,2);});
+}
+
+
+const newcomment_redirect=(req,res,next)=>{
+    idnum=req.session.query;
+    console.log(98,idnum,38);
+    query.findOne({_id:idnum})
+    .then(q=>{
+        reply=q.reply;
+        console.log(06,reply,11);
+        res.render('post/complete_query',{tit:'all comments',q:q,reply:reply,isAuthenticated:req.session.loggedIn});
+    })
+    .catch(err=>{console.log(1,err,07);});
+}
+
+
+const userreply=(req,res,next)=>{
+    idnum=req.params.idnum;
+    text=req.body.text.trim();
+    console.log(87,idnum,text,38);
+    tt=Date().split(" ");
+    const time1=tt[4].split(':');
+    time1.pop()
+    const time=time1.join(':')
+    const date=tt[1] + '/' + tt[2] + '/' + tt[3];
+    query.findOne({_id:req.session.query})
+    .then(q=>{
+        reply=q.reply;
+        newreply=[];
+        if (text==''){
+            newreply=[...reply];
+        }
+        else{
+            for (let ss=0;ss<reply.length;ss++){
+                r1=reply[ss];
+                if( r1._id.toString() == idnum.toString()){
+                    r1.array.push({user1:req.session.accountName,comment1:text,time1:time,date1:date});
+                }
+                newreply.push(r1);
+            }
+        }
+        q.reply=newreply;
+        console.log(5,q.reply,43);
+        obj = new query(q);
+        obj.save()
+        .then(qwe=>{
+            res.redirect('/newcomment_redirect');
+        })
+        .catch(err=>{console.log(3,err,98);});
+    })
+    .catch(err=>{console.log(97,err,2);});
+
+}
 
 module.exports={
     getpost:getpost,
     postpost:postpost,
     getanswer:getanswer,
-    postanswer:postanswer
+    postanswer:postanswer,
+    divclick:divclick,
+    newcomment:newcomment,
+    newcomment_redirect:newcomment_redirect,
+    userreply:userreply
 }
