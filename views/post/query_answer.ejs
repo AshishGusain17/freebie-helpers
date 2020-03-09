@@ -4,21 +4,20 @@
 <%- include('../include/middle.ejs') %>
 
 <div class="form-style-5">
-    <h2 class="name">Choose a query to answer</h2>
-
     <% if(q.length >0){ %>
+        <h1 class="heading1">Click any of the query below to answer:</h2>
         <% for(let pr of q){ %>
-            <div onclick="location.href='/divclick/<%=pr._id %>';">
-                Problem-statement by:<br>
-                <p><%= pr.opener %></p>
-    
-                Query:<br>
-                <p><%= pr.text %></p>
+            <div style='background-color: black;' onclick="location.href='/divclick/<%=pr._id %>';"><br>
+                <p class='heading1'>Problem-statement by:</p>
+                <p class='heading2'>@<%= pr.opener %></p>
+                <h1 class='heading1'>Query:</h1>
+                <p class='heading2' ><%= pr.text %></p>
                 
             </div>
         <% } %>
     <% }else{ %>
-        <p>No query related to such subject that you can answer</p>
+        <h1 class='heading1'>No query related to such subject that you can answer.</h1>
+        <p class='heading2'>Feel free to search other queries or post your own.</p>
     <% } %>
 
 

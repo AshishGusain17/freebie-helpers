@@ -11,75 +11,54 @@
         <link rel="stylesheet" href="css/comments/styles.css">
         <link rel="stylesheet" href='/css/popup.css'>
 	</head>
-
 <%- include('../include/middle.ejs') %>
 
-Problem-statement by:<br>
-<p><%= q.opener %></p>
-Query:<br>
-<p><%= q.text %></p>
-<form action='/newcomment/<%= q._id %>' method="POST">
-    <textarea type='text' name='text' placeholder='Write an answer' rows="4" cols="50"></textarea><br>
-    <button type="submit" class='send' value="Apply">Answer</button>
-</form>
-<!-- <div class="form-style-5"> -->
+<h1 class='heading1'>Problem-statement by:</h1>
+<p class='heading2'>@<%= q.opener %></p>
+<h1 class="heading1">Query:</h1>
+<p class='heading2'><%= q.text %></p>
+
+<li class="write-new">
+    <form action='/newcomment/<%= q._id %>' method="POST">
+        <textarea type='text' name='text' placeholder='Write an answer' rows="4" cols="50"></textarea><br>
+        <button type="submit" class='send' value="Apply">Answer</button>
+    </form>    
+</li>
+
+<div class="chat-popup" id="myForm">
+    <form id='form1' class="form-container" method="POST">
+        <label for="msg"><b>Reply</b></label>
+        <textarea type="text" placeholder="You can use this space for your reply...." name="text" required></textarea>
+        <button type="submit" class="btn" value="Apply">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+</div>
+
 <ul class="comment-section">
-    
     <% for(let pr of reply){ %>
         <li class="comment user-comment">
-
             <div class="info">
-                <a href="#"><%= pr.user %></a>
+                <a href="#">@<%= pr.user %>:</a>
                 <span><%= pr.time %></span>
                 <span><%= pr.date %></span>
             </div>
-            <!-- <a class="avatar" href="#">
-                <img src="images/avatar_user_1.jpg" width="35" alt="Profile Avatar" title="Anie Silverston" />
-            </a> -->
             <p><%= pr.comment %></p>
-
             <button class="open-button1"  onclick="openForm('/userreply/<%= pr._id %>/<%= pr.user %>')">Reply</button>
-            <div class="chat-popup" id="myForm">
-                <form id='form1' class="form-container" method="POST">
-                    <label for="msg"><b>Reply</b></label>
-                    <textarea type="text" placeholder="You can use this space for your reply...." name="text" required></textarea>
-                    <button type="submit" class="btn" value="Apply">Send</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                </form>
-            </div>
-
         </li>
-
 
         <% for(let ir of pr.array){ %>
             <li class="comment author-comment">
                 <div class="info">
-                    <a href="#"><%= ir.user1 %></a>
+                    <a href="#">:@<%= ir.user1 %></a>
                     <span><%= ir.time1 %></span>
                     <span><%= ir.date1 %></span>
                 </div> 
-
-                <!-- <a class="avatar" href="#">
-                    <img src="images/avatar_author.jpg" width="35" alt="Profile Avatar" title="Jack Smith" />
-                </a> -->
-
                 <p><%= ir.comment1 %></p>
-    
-                <!-- <p><%= ir.user1 %></p>
-                <p><%= ir.comment1 %></p>
-                <p><%= ir.time1 %></p>
-                <p><%= pr.date1 %></p> -->
-    
                 <button class="open-button1" onclick="openForm('/userreply/<%= pr._id %>/<%= ir.user1 %>')">Reply</button>
-
             </li>
-
         <% } %>
-
-        <!-- </div> -->
     <% } %>
 </ul>
-<!-- </div> -->
 
 
 

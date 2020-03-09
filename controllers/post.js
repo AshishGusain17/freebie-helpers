@@ -88,7 +88,7 @@ const newcomment=(req,res,next)=>{
         // console.log(4,reply,89);
         if(text==''){newreply=[...reply];}
         else{
-            newreply=[...reply,{user:req.session.accountName,comment:text,time:time,date:date,upvote:0,array:[]}];
+            newreply=[...reply,{user:req.session.accountName,comment:'Reply to @'+q.opener+':'+text,time:time,date:date,upvote:0,array:[]}];
         }
         q.reply=newreply;
         obj = new query(q);
@@ -136,7 +136,7 @@ const userreply=(req,res,next)=>{
             for (let ss=0;ss<reply.length;ss++){
                 r1=reply[ss];
                 if( r1._id.toString() == idnum.toString()){
-                    r1.array.push({user1:req.session.accountName,comment1:'@'+replytouser+':'+text,time1:time,date1:date});
+                    r1.array.push({user1:req.session.accountName,comment1:'Reply to @'+replytouser+':'+text,time1:time,date1:date});
                 }
                 newreply.push(r1);
             }

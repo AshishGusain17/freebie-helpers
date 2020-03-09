@@ -2,23 +2,25 @@
 
 <%- include('../include/middle.ejs') %>
 
-<div class="form-style-5">
+<li class="write-new">
     <form action='/postpost' method="POST">
-        <h2 class="name">Query Info</h2>
-
+        <h2 class="heading1">Query Info:</h2>
         <% if(message) { %>
-            <h1><%= message %></h1>
+            <h1 class='heading2'>##<%= message %>##</h1>
         <% } %>
 
-        Subject:<br>
-        <input type='text' name='subject'  placeholder='subject-name' ><br>
+        <p class='heading2'>Subject:</p><br>
+        <input type='text' name='subject'  placeholder='Subject-title' ><br>
 
-        Query:<br>
-        <textarea type='text' name='text' placeholder='Enter your query here' rows="4" cols="50"></textarea><br>
+        <p class='heading2'>Query:</p><br>
+        <textarea type='text' name='text' placeholder='Enter your query here:' rows="4" cols="50"></textarea><br>
 
         <button type="submit" class='send' value="Apply">Post</button>
     </form>
-</div>
+</li>
+
+
+
 
 </body>
 </html> 

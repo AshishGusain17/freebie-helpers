@@ -3,20 +3,24 @@
 
 <%- include('../include/middle.ejs') %>
 
-<div class="form-style-5">
+<li>
     <form action='/postanswer' method="POST">
-        <h2 class="name">Query Info</h2>
-
+        <h1 class="heading1">Query Info:</h2>
         <% if(message) { %>
-            <h1><%= message %></h1>
+            <p class='heading2'>##<%= message %>##</p>
         <% } %>
-
-        Subject:<br>
-        <input type='text' name='subject'  placeholder='subject-name' ><br>
-
-        <button type="submit" class='send' value="Apply">Find</button>
+        <p class='heading2'>Subject:</p>
+        <input style="width:13%" type='text' name='subject'  placeholder='Subject-title' ><br>
+        <button 
+                style ="background-color:  #87bae1;
+                        box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.12);
+                        font-weight: bold;
+                        padding: 10px 25px;
+                        margin-top: 8px;"
+                type="submit" class='send' value="Apply">Find</button>
     </form>
-</div>
+</li>
+
 
 </body>
 </html> 
