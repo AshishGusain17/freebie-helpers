@@ -66,7 +66,8 @@ const divclick=(req,res,next)=>{
     .then(q=>{
         reply=q.reply;
         console.log(4,q,reply,89);
-        res.render('post/complete_query',{tit:'all comments',q:q,reply:reply,isAuthenticated:req.session.loggedIn});
+        res.redirect('/newcomment_redirect');
+        // res.render('post/complete_query',{tit:'all comments',q:q,reply:reply,isAuthenticated:req.session.loggedIn});
     })
     .catch(err=>{console.log(1,err,07);});
 }
@@ -84,7 +85,7 @@ const newcomment=(req,res,next)=>{
     query.findOne({_id:idnum})
     .then(q=>{
         reply=q.reply;
-        console.log(4,reply,89);
+        // console.log(4,reply,89);
         if(text==''){newreply=[...reply];}
         else{
             newreply=[...reply,{user:req.session.accountName,comment:text,time:time,date:date,upvote:0,array:[]}];
@@ -107,7 +108,7 @@ const newcomment_redirect=(req,res,next)=>{
     query.findOne({_id:idnum})
     .then(q=>{
         reply=q.reply;
-        console.log(06,reply,11);
+        // console.log(06,reply,11);
         res.render('post/complete_query',{tit:'all comments',q:q,reply:reply,isAuthenticated:req.session.loggedIn});
     })
     .catch(err=>{console.log(1,err,07);});
@@ -116,8 +117,9 @@ const newcomment_redirect=(req,res,next)=>{
 
 const userreply=(req,res,next)=>{
     idnum=req.params.idnum;
+    replytouser=req.params.replytouser;
     text=req.body.text.trim();
-    console.log(87,idnum,text,38);
+    console.log(87,req.params,text,38);
     tt=Date().split(" ");
     const time1=tt[4].split(':');
     time1.pop()
@@ -134,13 +136,13 @@ const userreply=(req,res,next)=>{
             for (let ss=0;ss<reply.length;ss++){
                 r1=reply[ss];
                 if( r1._id.toString() == idnum.toString()){
-                    r1.array.push({user1:req.session.accountName,comment1:text,time1:time,date1:date});
+                    r1.array.push({user1:req.session.accountName,comment1:'@'+replytouser+':'+text,time1:time,date1:date});
                 }
                 newreply.push(r1);
             }
         }
         q.reply=newreply;
-        console.log(5,q.reply,43);
+        // console.log(5,q.reply,43);
         obj = new query(q);
         obj.save()
         .then(qwe=>{

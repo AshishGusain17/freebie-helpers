@@ -2,7 +2,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
 /* Button used to open the chat form - fixed at the bottom of the page */
-.open-button {
+.open-button1 {
   background-color: #555;
   color: white;
   padding: 16px 20px;
@@ -67,6 +67,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
+.form-container .btn:hover, .open-button1:hover {
   opacity: 1;
 }

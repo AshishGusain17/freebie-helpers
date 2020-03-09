@@ -18,6 +18,6 @@ router.post('/newcomment/:idnum',post.newcomment);
 
 router.get('/newcomment_redirect',post.newcomment_redirect);
 
-router.post('/userreply/:idnum',post.userreply);
+router.post('/userreply/:idnum/:replytouser',post.userreply);
 
 module.exports=router;
