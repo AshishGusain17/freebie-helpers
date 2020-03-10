@@ -70,8 +70,8 @@ app.use((req,res,next)=>{
 
 mongoose.connect('mongodb+srv://AshishGusain17:password17@cluster0-werpd.mongodb.net/weblog?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true })
         .then(ob=>{
-            app.listen(1000);
-            // app.listen(process.env.PORT || '0.0.0.0' );
+            // app.listen(1000);
+            app.listen(process.env.PORT || '0.0.0.0' );
             console.log('connected_via_mongooseJS',51);
         })
         .catch(err=>{console.log(5,err,78);});
