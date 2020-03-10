@@ -1,9 +1,7 @@
 # freebie-helpers
 
-<!-- Visit this website here. SignUp, LogIn and start exploring.
-* [mini-chatapp.herokuapp.com](https://mini-chatapp.herokuapp.com/) -->
-
-Soon the link for the website will be available
+Visit this website here. Start with authenticating yourself.
+* [freebie-helpers.herokuapp.com](https://freebie-helpers.herokuapp.com/)
 
 ## Dependencies required:
 * [Node.js](https://nodejs.org/docs/latest-v10.x/api/) - v10.16.2
