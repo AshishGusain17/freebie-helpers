@@ -1,4 +1,4 @@
-# weblog-website
+# freebie-helpers
 
 <!-- Visit this website here. SignUp, LogIn and start exploring.
 * [mini-chatapp.herokuapp.com](https://mini-chatapp.herokuapp.com/) -->
