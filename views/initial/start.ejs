@@ -1,18 +1,22 @@
 <%- include('../include/head.ejs') %>
 <style>
-    .h1{
-        color:black;font-size:40px;text-align: center;
-    }
-    .h1:hover{
-        color: #f1f1f1;
-        left: 0;
+    .video{
+        margin-left: 25%;
     }
 </style>
 </head>
 
 <%- include('../include/middle.ejs') %>
     <!-- <h1 class='h1'>` Go ahead! </h1> -->
-    <h1 class='heading2'>` If you are logged in, enjoy! </h1>
-    <h1 class='heading2'>` Else start with authenticating yourself. </h1>
+
+    <div class='video'>
+        <h1 class='heading2'>` Watch the video to understand the working of this web-app! </h1>
+        <h1 class='heading2'>` Else signUp, logIn and have fun browsing this website. </h1>
+
+        <iframe width=60% height="415"
+            src="https://www.youtube.com/embed/_f3S74FNgnw">
+        </iframe>
+    </div>
+
 </body>
 </html>
